@@ -1,7 +1,20 @@
 import React from "react";
+import { useQuiz } from "../context/QuizContext";
 
-const NextButton = ({ dispatch, answer, index, numQuestions }) => {
+const Button = ({ action }) => {
+  const { dispatch, answer, index, numQuestions } = useQuiz();
+
   if (answer === null) return null;
+
+  if (action === "previous" && index > 0)
+    return (
+      <button
+        className="btn btn-ui btn-left"
+        onClick={() => dispatch({ type: "previousQuestion" })}
+      >
+        &larr;
+      </button>
+    );
 
   if (index < numQuestions - 1)
     return (
@@ -24,4 +37,4 @@ const NextButton = ({ dispatch, answer, index, numQuestions }) => {
     );
 };
 
-export default NextButton;
+export default Button;

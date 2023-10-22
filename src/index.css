@@ -150,6 +150,11 @@ progress {
     float: right;
 }
 
+.btn-left {
+    /*float: left;*/
+    /*margin-left: 20px;*/
+}
+
 .options {
     display: flex;
     flex-direction: column;
